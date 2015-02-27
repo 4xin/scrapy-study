@@ -51,7 +51,7 @@ ip_list = \
         "192.168.3.190:7080"
     ]
 
-def method_name():
+def run():
     user_agent = random.choice(user_agent_list)
     proxy = random.choice(ip_list)
     request = urllib2.Request('http://www.baidu.com/')
@@ -61,4 +61,4 @@ def method_name():
     response = urllib2.urlopen(request, timeout=30)
     print response.read()
 
-method_name()
+run()
