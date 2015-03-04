@@ -18,13 +18,15 @@ def authIP():
         lock.acquire()
         ip = ip_queue.get()
         lock.release()
-        request = urllib2.Request('http://www.baidu.com/')
+        request = urllib2.Request('http://www.cncn.gov.cn/art/2015/3/3/art_432_187630.html')
         request.add_header('User-Agent', user_agent)
         opener = urllib2.build_opener(urllib2.ProxyHandler({'http':'http://%s/'%ip}))
         try:
             response = opener.open(request, timeout=30)
-            if(response.geturl().find("baidu")):
-                print ip+":"+" is valid!"
+#            if(response.geturl().find("baidu")):
+#                print ip+":"+" is valid!"
+            print response.geturl()
+            print response.read()
         except:
             pass
 
